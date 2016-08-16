@@ -1,14 +1,11 @@
 FROM centos:7
 MAINTAINER Mikkel Kruse Johnsen <mikkel@xmedicus.com>
 
-# install Fedora repo
-RUN rpm -Uvh http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-6.noarch.rpm
-
 # Update
 RUN yum -y update
 
-# Install net tools
-RUN yum install -y net-tools
+# Clean yum
+RUN yum clean all
 
 # Install .NET Core dependencies 
 RUN yum install -y \ 
