@@ -19,6 +19,12 @@ RUN yum install -y \
 	zlib \
 	libicu-devel
 
+# Install mozroots
+RUN rpm -Uvh http://yum.xmedicus.com/opensource/rhel-7-x86_64/RPMS/openmedicus-release-rhel-2.0-1.noarch.rpm
+
+# install Mono
+RUN yum install -y mono-core
+
 # Install .NET Core
 RUN mkdir -p /opt/dotnet
 ADD dotnet.tar.gz /opt/dotnet
